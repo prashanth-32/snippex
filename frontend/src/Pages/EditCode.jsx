@@ -17,7 +17,7 @@ const EditCode = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post(`http://localhost:4000/snippets/update/${id}`, { author: user.username, name: title, language: language, description: desc, code: code }, { withCredentials: true });
+            const res = await axios.post(`https://snippex.onrender.com/snippets/update/${id}`, { author: user.username, name: title, language: language, description: desc, code: code }, { withCredentials: true });
             // console.log(res);
             setRedirect(true);
         }
@@ -28,7 +28,7 @@ const EditCode = () => {
     useEffect(()=>{
         const getData = async () =>{
             try{
-                const {data} = await axios.get(`http://localhost:4000/snippets/${id}`,{withCredentials:true});
+                const {data} = await axios.get(`https://snippex.onrender.com/snippets/${id}`,{withCredentials:true});
                 setCode(data[0].code);
                 setDesc(data[0].description);
                 setLanguage(data[0].language);

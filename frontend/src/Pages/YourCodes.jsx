@@ -10,7 +10,7 @@ const YourCodes = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:4000/snippets/user/${user.username}`, { withCredentials: true });
+        const { data } = await axios.get(`https://snippex.onrender.com/snippets/user/${user.username}`, { withCredentials: true });
         setSnippets(data);
       }
       catch (err) {

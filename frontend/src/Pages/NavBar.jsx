@@ -9,7 +9,7 @@ const NavBar = () => {
   const handleLogout = async(e) => {
     e.preventDefault();
     try{
-      await axios.post('http://localhost:4000/users/logout',null,{withCredentials:true});
+      await axios.post('https://snippex.onrender.com/users/logout',null,{withCredentials:true});
       setUser(null);
     }
     catch(err)

@@ -14,7 +14,7 @@ const Create = () => {
     const handleCreate = async (e)=>{
         e.preventDefault();
         try{
-          const res = await axios.post('http://localhost:4000/snippets/create',{author:user.username,name:title,language:language,description:desc,code:code},{withCredentials:true});
+          const res = await axios.post('https://snippex.onrender.com/snippets/create',{author:user.username,name:title,language:language,description:desc,code:code},{withCredentials:true});
           // console.log(res);
           setRedirect(true);
         }

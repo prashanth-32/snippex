@@ -15,7 +15,7 @@ export default function Register() {
 
   useEffect(()=>{
     const getData = async () =>{
-      const {data} = await axios.get("http://localhost:4000/users/info",{withCredentials:true});
+      const {data} = await axios.get("https://snippex.onrender.com/users/info",{withCredentials:true});
       setUser(data.info);
     }
     getData();
@@ -24,7 +24,7 @@ export default function Register() {
     e.preventDefault();
     if (isRegister) {
       try{
-        const {data} = await axios.post("http://localhost:4000/users/register", { username, email, password }, { withCredentials: true });
+        const {data} = await axios.post("https://snippex.onrender.com/users/register", { username, email, password }, { withCredentials: true });
         setUser(data.data);
         setRedirect(true);
       }
@@ -36,7 +36,7 @@ export default function Register() {
     }
     else {
       try{
-      const {data} = await axios.post("http://localhost:4000/users/login", { username, password }, { withCredentials: true });
+      const {data} = await axios.post("https://snippex.onrender.com/users/login", { username, password }, { withCredentials: true });
       setUser(data.data);
       setRedirect(true);
       }

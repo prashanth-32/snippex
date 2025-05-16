@@ -40,7 +40,7 @@ const ViewCode = () => {
     const addComment = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:4000/snippets/postComment', { postId: id, username: user.username, comment }, { withCredentials: true });
+            const res = await axios.post('https://snippex.onrender.com/snippets/postComment', { postId: id, username: user.username, comment }, { withCredentials: true });
             // console.log(res);
             setRender(() => true);
             setComment('');
@@ -53,9 +53,9 @@ const ViewCode = () => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:4000/snippets/${id}`, { withCredentials: true });
+                const { data } = await axios.get(`https://snippex.onrender.com/snippets/${id}`, { withCredentials: true });
                 setSnippet(data[0]);
-                const res = await axios.get(`http://localhost:4000/snippets/comments/${id}`, { withCredentials: true });
+                const res = await axios.get(`https://snippex.onrender.com/snippets/comments/${id}`, { withCredentials: true });
                 // console.log(res);
                 setComments(res.data);
             } catch (err) {
@@ -67,7 +67,7 @@ const ViewCode = () => {
 
     const deleteSnippet = async (e) => {
         try {
-            const res = await axios.delete(`http://localhost:4000/snippets/${id}`, { withCredentials: true });
+            const res = await axios.delete(`https://snippex.onrender.com/snippets/${id}`, { withCredentials: true });
             // console.log(res);
             setRedirect(true);
         }

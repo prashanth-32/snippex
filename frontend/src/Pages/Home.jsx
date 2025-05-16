@@ -14,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await axios.get('http://localhost:4000/snippets/', { withCredentials: true });
+        const { data } = await axios.get('https://snippex.onrender.com/snippets/', { withCredentials: true });
         setSnippets(data);
       }
       catch (err) {
