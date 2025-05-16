@@ -26,7 +26,7 @@ router.post('/register',async (req,res) => {
         const hashedPassword = await bcrypt.hash(password,salt);
         const user = await User.create({username,email,password:hashedPassword});
         const token = jwt.sign({userId:user._id,username,email},secret,{expiresIn:"1d"});
-        res.cookie('token',token);
+        res.cookie('token',token,{secure:true,sameSite:"none"});
         const data = {userId:user._id,username,email};
         res.status(201).json({data});
     }
@@ -52,7 +52,7 @@ router.post('/login',async (req,res) => {
             return res.status(400).json({message:"Password incorrect"});
         
         const token = jwt.sign({userId:userExists._id,username,email:userExists.email},secret,{expiresIn:"1d"});
-        res.cookie('token',token);
+        res.cookie('token',token,{secure:true,sameSite:"none"});
         const data = {userId:userExists._id,username,email:userExists.email};
         res.status(200).json({data});
     }
