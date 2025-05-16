@@ -12,7 +12,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:'https://snippex-frontend.onrender.com',
     credentials:true,
 }))
 app.use('/users',userRouter);
