@@ -64,7 +64,7 @@ router.post('/login',async (req,res) => {
 // Logout
 router.post('/logout',async (req,res) => {
     try{
-        res.clearCookie('token');
+        res.clearCookie('token',{sameSite:"none",secure:true});
         res.status(200).json('sucess');
     }
     catch(err)
